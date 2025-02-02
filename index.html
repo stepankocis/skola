@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Rocket - Simple, Fast, Type-Safe Web Framework for Rust</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://rocket.rs/images/safari-pinned-tab.svg" rel="icon">
+</head>
+<body>
+<header>
+    <a href="https://rocket.rs/"><img id="rocketLogoUp" src="https://rocket.rs/images/box-logo.png" alt="Rocket Logo"
+                                      height="50" width="120"></a>
+    <nav>
+        <a href="https://rocket.rs/overview/">overview</a>
+        <a href="https://rocket.rs/guide/v0.5/">guide</a>
+        <a href="https://rocket.rs/guide/v0.5/faq/#faq">faq</a>
+        <a href="https://rocket.rs/news/">news</a>
+        <a href="https://api.rocket.rs/v0.5/rocket/">docs</a>
+        <a href="https://github.com/rwf2/Rocket/tree/v0.5.1">
+            <img src="https://rocket.rs/images/github-mark-white.svg" alt="GitHub Logo" height="20" width="20"></a>
+    </nav>
+    <img id="cloud" src="https://rocket.rs/images/cloud-0.png" alt="cloud">
+</header>
+<main>
+    <div id="horejsek">
+        <h1><img src="https://rocket.rs/images/rocket-text.svg" alt="font-logo" height="38" width="161"></h1>
+        <h2>A web framework for <b><img id="rustLogo" src="https://rocket.rs/images/rust-gear.svg" alt="rust-logo"
+                                        height="22"></b> Rust
+            that makes it simple to write <i>fast</i>, type-safe, secure web applications with incredible usability,
+            productivity <i>and</i> performance. </h2>
+        <div class="vrsek">
+            <span id="specialCudlitko" class="buttons">Get Started</span>
+            <span class="buttons"><a
+                    href="https://www.youtube.com/watch?v=dQw4w9WgXcQ&pp=ygUlUmljayBBc3RsZXkgLSBOZXZlciBHb25uYSBHaXZlIFlvdSBVcA%3D%3D">Learn More</a></span>
+            <span class="buttons">Read FAQ</span>
+        </div>
+        <div id="container">
+            <div id="caraHore">
+                <span id="latestRelease"> Latest Release: 🎉 <a href="https://crates.io/crates/rocket/0.5.1">0.5.1 (May 22, 2024)</a></span>
+            </div>
+        </div>
+        <div id="ctiriVecicky">
+            <div class="ctverceAA ctverceBB">
+                <div><img src="https://rocket.rs/images/helmet.svg" alt="picture-Helmet"></div>
+                <div class="nadpisyGrid"><b>Type safety</b></div>
+                <div class="textDole">turned up to 11 means security and robustness come at compile-time.</div>
+                <div class="buttons tlacitkoPodTlacitkem"><a href="https://rocket.rs/overview/">Learn More</a></div>
+            </div>
+            <div class="ctverceAA ctverceBB">
+                <div><img src="https://rocket.rs/images/robot-free.svg" alt="robot-free"></div>
+                <div class="nadpisyGrid"><b>Boilerplate Free</b></div>
+                <div class="textDole">Spend your time writing code that really matters and let Rocket handle the rest
+                </div>
+                <div class="buttons tlacitkoPodTlacitkem"><a href="https://rocket.rs/overview/">See Examples</a></div>
+            </div>
+            <div class="ctverceAA ctverceBB">
+                <div><img src="https://rocket.rs/images/sun.svg" alt="sun"></div>
+                <div class="nadpisyGrid"><b>Easy To Use</b></div>
+                <div class="textDole"> Simple, intuitive APIs make Rocket approachable, no matter your background.</div>
+                <div class="buttons tlacitkoPodTlacitkem"><a href="https://rocket.rs/overview/">Get Started</a></div>
+            </div>
+            <div class="ctverceBB">
+                <div><img src="https://rocket.rs/images/telescope.svg" alt="telescope"></div>
+                <div class="nadpisyGrid"><b>Extensible</b></div>
+                <div class="textDole">Create your own first-class primitives that any Rocket application can use.</div>
+                <div class="buttons tlacitkoPodTlacitkem"><a href="https://rocket.rs/overview/">See How</a></div>
+            </div>
+        </div>
+    </div>
+    <div id="code1">
+        <div class="levo">
+            <pre class="cislaLevo">
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+            </pre>
+            <pre class="code2">
+#[macro_use] extern crate rocket;
+
+#[get("/hello/&ltname>/&ltage>")]
+fn hello(name: &str, age: u8) -> String {
+    format!("Hello, {} year old named {}!", age, name)
+}
+
+#[launch]
+fn rocket() -> _ {
+    rocket::build().mount("/", routes![hello])
+}
+
+            </pre>
+        </div>
+        <div class="pravo">
+            <h3>Hello, Rocket!</h3>
+            <div> This is a complete Rocket application. It does exactly what you would expect. If you were to visit
+                /hello/John/58, you’d see:
+            </div>
+            <div class="neco12">
+                <pre class="cislaLevo">1</pre>
+                <pre class="code2">Hello, 58 year old named John!</pre>
+            </div>
+            <div>If someone visits a path with an <code>&ltage></code> that isn’t a <code>u8</code>, Rocket doesn’t
+                naively call <code>hello</code>. Instead,
+                it tries other matching routes or returns a 404.
+            </div>
+        </div>
+    </div>
+    <div id="code2AA">
+        <div class="levo2">
+            <h3>Forms? Check!</h3>
+            <div><b>Form handling is simple, declarative, and complete</b>: derive <code>FromForm</code> for your
+                structure and set the data
+                parameter to a <code>Form</code> type. Rocket automatically parses and validates the form data into your
+                structure
+                and calls your function. File uploads? A breeze with <code>TempFile</code>. Bad form request? Rocket
+                doesn’t call
+                your function! Need to know what went wrong? Use a <code>data</code> parameter of Result! Want to
+                rerender the form
+                with user input and errors? Use <code>Context</code>!
+            </div>
+        </div>
+        <div class="levo">
+           <pre class="cislaLevo2">
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+           </pre>
+            <pre class="code2-1">#[derive(FromForm)]
+struct Task&lt'r> {
+    #[field(validate = len(1..))]
+    description: &'r str,
+    completed: bool,
+}
+
+#[post("/", data = "&lttask>")]
+fn new(task: Form&ltTask<'_>>) -> Flash&ltRedirect> {
+    Flash::success(Redirect::to(uri!(home)), "Task added.")
+}
+</pre>
+        </div>
+    </div>
+    <div id="code3AA">
+        <div class="levo">
+            <pre class="cislaLevo">
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+            </pre>
+            <pre class="code2">
+                #[derive(Serialize, Deserialize)]
+struct Message<'r> {
+    contents: &'r str,
+}
+
+#[put("/&ltid>", data = "&ltmsg>")]
+fn update(db: &Db, id: Id, msg: Json&ltMessage<'_>>) -> Value {
+    if db.contains_key(&id) {
+        db.insert(id, msg.contents);
+        json!({ "status": "ok" })
+    } else {
+        json!({ "status": "error" })
+    }
+}
+            </pre>
+        </div>
+        <div class="pravo">
+            <h3>JSON, Always on</h3>
+            <div>Rocket has first-class support for JSON, right out of the box. Simply derive <code>Deserialize</code>
+                or <code>Serialize</code> to receive or return JSON, respectively.
+            </div>
+            <pre>   </pre>
+            <div>Look familiar? Forms, JSON, and all kinds of body data types work through Rocket’s
+                <code>FromData</code> trait, Rocket’s approach to deriving types from body data. A <code>data</code>
+                route parameter can be any type that implements <code>FromData</code>. A value of that type will be
+                deserialized automatically from the incoming request body. You can even implement <code>FromData</code>
+                for your own types!
+            </div>
+        </div>
+    </div>
+    <div id="randomText">
+        <div id="randomBigText">
+            Rocket is ready to launch.
+        </div>
+        <div id="cudlitkaDole">
+            <div class="moreCudlitko">
+                <div class="tlacitkoPodTlacitkem buttons moreTlacitko"><a href="https://rocket.rs/guide/v0.5/">Get
+                    Started</a></div>
+            </div>
+            <div class="moreCudlitko">
+                <div class="tlacitkoPodTlacitkem buttons"><a href="https://rocket.rs/overview/">Learn More</a></div>
+            </div>
+        </div>
+    </div>
+    <div id="containerPrazdnota">
+        <div id="textNadPrazdnotou">Ins and Outs</div>
+        <div id="textNadPrazdnotou2">Discover how Rocket applications are built.</div>
+        <div id="prazdnyBox"><a></a></div>
+    </div>
+    <div id="textAGrid">
+        <div id="textAGridBig">And so much more.</div>
+        <div id="textAGridSmall">An entire ecosystem, built in.</div>
+        <div class="Grid border-bottom">
+            <div class="Grid1">
+                <div><img class="icon" src="https://rocket.rs/images/templating-icon.svg" alt="icon-templating"></div>
+                <div class="nadpisyGrid blue"><b>Templating</b></div>
+                <div class="textDole">Rocket makes templating a breeze with built-in templating support. </div>
+                <div class="buttons blue"><a href="https://rocket.rs/guide/v0.5/responses/#templates">Learn More</a></div>
+            </div>
+            <div class="Grid1 stred">
+                <div><img class="icon" src="https://rocket.rs/images/cookies-icon.svg" alt="icon-cookies"></div>
+                <div class="nadpisyGrid purple"><b>Cookies</b></div>
+                <div class="textDole">View, add, or remove cookies, with or without encryption, without hassle.  </div>
+                <div class="buttons purple"><a href="https://rocket.rs/guide/v0.5/requests/#cookies">Learn More</a></div>
+            </div>
+            <div class="Grid1">
+                <div><img class="icon" src="https://rocket.rs/images/streams-icon.svg" alt="icon-streams"></div>
+                <div class="nadpisyGrid red"><b>WebSockets + Streams</b></div>
+                <div class="textDole"> Create and return potentially infinite async streams of data with ease.  </div>
+                <div class="buttons red"><a href="https://rocket.rs/guide/v0.5/responses/#async-streams">Learn More</a></div>
+            </div>
+        </div>
+        <div class="Grid border-bottom">
+            <div class="Grid1">
+                <div><img class="icon" src="https://rocket.rs/images/config-icon.svg" alt="icon-config"></div>
+                <div class="nadpisyGrid yellow"><b>Config Profiles</b></div>
+                <div class="textDole">Configure your application your way for debug, release, or anything else!  </div>
+                <div class="buttons yellow"><a href="https://rocket.rs/guide/v0.5/configuration/#profiles">Learn More</a></div>
+            </div>
+            <div class="Grid1 stred">
+                <div><img class="icon" src="https://rocket.rs/images/pencil-icon.svg" alt="icon-pencil"></div>
+                <div class="nadpisyGrid orange"><b>Type-Checked URIs</b></div>
+                <div class="textDole">Never mistype or forget to update a URI again with Rocket's typed URIs.</div>
+                <div class="buttons orange"><a href="https://rocket.rs/guide/v0.5/requests/#private-cookies">Learn More</a></div>
+            </div>
+            <div class="Grid1">
+                <div><img class="icon" src="https://rocket.rs/images/ship-icon.svg" alt="icon-ship"></div>
+                <div class="nadpisyGrid green"><b>Structured Middleware</b></div>
+                <div class="textDole"> Fairings are Rocket's simpler approach to structured middleware.   </div>
+                <div class="buttons green"><a href="https://rocket.rs/guide/v0.5/fairings/#fairings">Learn More</a></div>
+            </div>
+        </div>
+        <div class="Grid">
+            <div class="Grid1">
+                <div><img class="icon" src="https://rocket.rs/images/query-icon.svg" alt="icon-query"></div>
+                <div class="nadpisyGrid pink"><b>Database Support</b></div>
+                <div class="textDole">Store data with ease with Rocket's built-in ORM agnostic database support.</div>
+                <div class="buttons pink"><a href="https://rocket.rs/guide/v0.5/state/#databases">Learn More</a></div>
+            </div>
+            <div class="Grid1 stred">
+                <div><img class="icon" src="https://rocket.rs/images/testing-icon.svg" alt="icon-testing"></div>
+                <div class="nadpisyGrid cyan"><b>Testing</b></div>
+                <div class="textDole">Unit and integration test using the comprehensive, built-in testing library. </div>
+                <div class="buttons cyan"><a href="https://rocket.rs/guide/v0.5/testing/#testing">Learn More</a></div>
+            </div>
+            <div class="Grid1 mezeraIg">
+                <div><img class="icon" src="https://rocket.rs/images/globe.svg" alt="icon-globe"></div>
+                <div class="nadpisyGrid purple2"><b>Community</b></div>
+                <div class="textDole">Join an extensive community of 20,000+ Rocketeers that love Rocket.</div>
+                <div class="buttons purple2"><a href="https://github.com/rwf2/Rocket/network/dependents">Learn More</a></div>
+            </div>
+        </div>
+    </div>
+</main>
+<footer>
+    <div class="footer">
+        <pre><a href="https://sergio.bz/">© 2016-2024 Sergio Benitez </a></pre>
+        <img id="obrazekDole" src="https://rocket.rs/images/logo-small.svg">
+        <pre><a href="#rocketLogoUp">BACK TO TOP Δ</a></pre>
+    </div>
+</footer>
+</body>
+</html>
